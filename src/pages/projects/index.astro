@@ -1,0 +1,5 @@
+---
+import { getCollection } from 'astro:content'; import BaseLayout from '../../layouts/BaseLayout.astro'; import ProjectCard from '../../components/ProjectCard.astro';
+const items=await getCollection('projects',({data})=>data.publish);
+---
+<BaseLayout title="Projetos — Kaíque Passaros" active="projects"><section class="page-hero compact"><p class="eyebrow">PROJETOS</p><h1>Um catálogo vivo, atualizado por conteúdo.</h1><p class="lede">Cada novo projeto utiliza o mesmo layout, schema e fluxo de qualidade.</p></section><section class="section catalog"><label class="search-box"><span>Buscar</span><input id="catalog-search" type="search" placeholder="Nome, stack ou problema"/></label><p class="catalog-note">Coleção <code>src/content/projects</code> — {items.length} itens publicados.</p><div class="project-list" id="catalog-list">{items.map(entry=><ProjectCard entry={entry} collection="projects"/>)}</div></section></BaseLayout>

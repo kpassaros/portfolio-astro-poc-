@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const labels={about:['Sobre','Minha história e forma de pensar.'],career:['Carreira','Evolução profissional orientada por dados.'],skills:['Competências','Tecnologias, práticas e aplicações.'],contact:['Contato','Vamos conversar sobre dados, BI e transformação.']};
+const [title,desc]=labels['contact'];
+---
+<BaseLayout title={title+' — Kaíque Passaros'} active="contact"><section class="page-hero compact"><p class="eyebrow">POC ARQUITETURAL</p><h1>{title}</h1><p class="lede">{desc}</p><div class="poc-warning">Esta rota confirma a navegação global. A migração integral do conteúdo ocorrerá somente após aprovação da arquitetura.</div></section></BaseLayout>
