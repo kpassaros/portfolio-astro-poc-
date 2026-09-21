@@ -1,4 +1,3 @@
-eploy.yml
 name: Deploy POC to GitHub Pages
 on:
   push:
@@ -44,3 +43,4 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+​
