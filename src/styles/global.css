@@ -115,3 +115,28 @@ body[data-page]:not([data-page="inicio"]) #starfield{display:block!important;opa
 
 /* ASTRO POC — adições isoladas */
 .poc-chip{display:inline-flex;align-items:center;min-height:32px;padding:0 10px;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));border-radius:999px;color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.09em}.case-showcase{width:100%;border:1px solid var(--line);border-radius:14px}.catalog-note{padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--muted)}.tags{display:flex;gap:8px;flex-wrap:wrap}.tags span{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--white);font-size:13px}.poc-warning{margin:18px 0;padding:15px 17px;border-left:3px solid var(--accent);background:var(--accent-soft);color:var(--muted)}
+
+/* Visual parity: persistent neural background and home loader */
+#starfield{position:fixed!important;inset:0!important;z-index:0!important;width:100%!important;height:100%!important;display:block!important;opacity:.72!important;pointer-events:none!important}
+body>header,body>main,body>footer,body>.skip{position:relative;z-index:1}
+body.loader-active{overflow:hidden!important}
+body.home-loading>header,body.home-loading>main,body.home-loading>footer{opacity:0}
+body.content-ready>header{animation:portfolioReveal .72s ease .12s both}
+body.content-ready>main{animation:portfolioReveal .78s ease .24s both}
+body.content-ready>footer{animation:portfolioReveal .8s ease .36s both}
+.neural-loader{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;min-height:100vh!important;z-index:30000!important;display:grid!important;place-items:center!important;overflow:hidden!important;background:radial-gradient(circle at 50% 46%,#102b48 0,#0a1828 28%,#07111d 58%,#050b12 100%)!important;isolation:isolate;opacity:1;visibility:visible;transition:opacity .68s ease,visibility .68s ease}
+.neural-loader::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(91,165,238,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(91,165,238,.035) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(circle at center,#000 0,transparent 76%)}
+.neural-loader.complete{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+#loader-network{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;transition:opacity .5s ease}
+.loader-logo{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 0 18px rgba(73,157,242,.42));animation:loaderLogoIn .65s ease both;transition:opacity .36s,transform .5s}
+.loader-logo img{display:block;width:clamp(88px,10vw,132px);height:auto}
+.loader-portal{position:absolute;z-index:3;left:50%;top:50%;width:142px;height:142px;border:1px solid rgba(99,180,255,.62);border-radius:50%;transform:translate(-50%,-50%) scale(.25);opacity:0;box-shadow:0 0 44px rgba(99,180,255,.16);animation:loaderPortal 2.2s .18s cubic-bezier(.17,.82,.22,1) forwards}
+.loader-portal::after{content:"";position:absolute;inset:13px;border:1px dashed rgba(111,190,255,.48);border-radius:50%;animation:loaderSpin 2.4s linear infinite}
+.neural-loader.handoff{background:transparent!important}
+.neural-loader.handoff #loader-network{opacity:.18}
+.neural-loader.handoff .loader-logo{opacity:0;transform:translate(-50%,-50%) scale(.9)}
+@keyframes loaderSpin{to{transform:rotate(360deg)}}
+@keyframes loaderLogoIn{from{opacity:0;transform:translate(-50%,-50%) scale(.84)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes loaderPortal{8%{opacity:1}50%{opacity:.82;transform:translate(-50%,-50%) scale(1.05)}100%{opacity:0;transform:translate(-50%,-50%) scale(10)}}
+@keyframes portfolioReveal{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.loader-portal,.loader-logo{animation-duration:.25s!important}.neural-loader{transition-duration:.2s!important}body.content-ready>header,body.content-ready>main,body.content-ready>footer{animation-duration:.2s!important}}
