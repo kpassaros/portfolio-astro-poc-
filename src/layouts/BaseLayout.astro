@@ -9,29 +9,30 @@ const isHome = active === 'inicio';
 ---
 <!doctype html>
 <html lang="pt-BR" data-theme="dark">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="description" content={description}/>
-    <meta name="theme-color" content="#151817"/>
-    <link rel="icon" href={`${base}assets/brand/favicon-32.png`}/>
-    {isHome && <link rel="preload" href={`${base}assets/character/character-loop.webm`} as="video" type="video/webm"/>}
-    <title>{title}</title>
-    <script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')||'dark'}catch{}</script>
-  </head>
-  <body data-page={active} class:list={[isHome && 'loader-active', isHome && 'home-loading']}>
-    {isHome && (
-      <div id="page-loader" class="neural-loader" aria-hidden="true">
-        <canvas id="loader-network"></canvas>
-        <div class="loader-portal"></div>
-        <div class="loader-logo"><img src={`${base}assets/brand/brand-mark.png`} alt=""/></div>
-      </div>
-    )}
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="description" content={description}/>
+  <meta name="theme-color" content="#151817"/>
+  <link rel="icon" href={`${base}assets/brand/favicon-32.png`}/>
+  {isHome && <link rel="preload" href={`${base}assets/character/character-loop.webm`} as="video" type="video/webm"/>}
+  <title>{title}</title>
+  <script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')||'dark'}catch{}</script>
+</head>
+<body data-page={active} class:list={[isHome && 'loader-active', isHome && 'home-loading']}>
+  {isHome ? (
+    <div id="page-loader" class="neural-loader" aria-hidden="true">
+      <canvas id="loader-network" data-origin="loading"></canvas>
+      <div class="loader-portal"></div>
+      <div class="loader-logo"><img src={`${base}assets/brand/brand-mark.png`} alt=""/></div>
+    </div>
+  ) : (
     <canvas id="starfield" aria-hidden="true"></canvas>
-    <a class="skip" href="#conteudo">Ir para o conteúdo</a>
-    <Header active={active}/>
-    <main id="conteudo"><slot /></main>
-    <Footer/>
-    <script src={`${base}scripts/site.js`} defer></script>
-  </body>
+  )}
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+  <Header active={active}/>
+  <main id="conteudo"><slot /></main>
+  <Footer/>
+  <script src={`${base}scripts/site.js`} defer></script>
+</body>
 </html>
