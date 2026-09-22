@@ -34,7 +34,8 @@
 - [ ] Loading exibe somente papel/logo e rede neural, sem textos, círculos ou barra de progresso.
 - [ ] A transformação dura cerca de 3 s e mantém a logo final visível por cerca de 2 s.
 - [ ] O último frame corresponde à logo oficial completa, inclusive bico, cabeça, corpo, asa, cauda e espaços negativos.
-- [ ] A passagem para a Home é fluida e não deixa a tela travada.
+- [ ] A passagem para a Home é fluida, não deixa a tela travada e não altera a cor do background.
+- [ ] O clique gera uma propagação neural visível na Home e em todas as páginas internas.
 - [ ] Home equivalente à identidade atual.
 - [ ] Cards de Projects e Labs.
 - [ ] Desktop 1366×768.

@@ -23,42 +23,11 @@ const isHome = active === 'inicio';
   {isHome ? (
     <div id="page-loader" class="origami-loader" aria-label="Carregando portfólio" role="status">
       <canvas id="loader-network" aria-hidden="true"></canvas>
-      <svg class="origami-mark" viewBox="0 0 320 251" aria-hidden="true">
-        <polygon class="fold fold-wing" points="0,0 160,125 0,251">
-          <animate attributeName="points" dur="3s" fill="freeze"
-            keyTimes="0;0.14;0.28;0.42;0.58;0.72;0.86;1"
-            calcMode="spline"
-            keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"
-            values="0,0 160,125 0,251;8,8 154,123 5,244;5,4 145,119 18,230;2,2 138,116 41,207;1,1 133,121 65,184;1,0 131,127 91,158;1,0 131,130 116,143;1,0 131,131 131,0"/>
-        </polygon>
-        <polygon class="fold fold-body" points="0,0 320,0 160,125">
-          <animate attributeName="points" dur="3s" fill="freeze"
-            keyTimes="0;0.14;0.28;0.42;0.58;0.72;0.86;1"
-            calcMode="spline"
-            keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"
-            values="0,0 320,0 160,125;10,7 309,7 160,126;27,8 297,12 158,132;51,7 287,25 155,145;78,5 279,49 151,164;103,4 271,76 147,187;126,3 267,102 144,220;143,3 141,248 264,125"/>
-        </polygon>
-        <polygon class="fold fold-head" points="320,0 320,251 160,125">
-          <animate attributeName="points" dur="3s" fill="freeze"
-            keyTimes="0;0.14;0.28;0.42;0.58;0.72;0.86;1"
-            calcMode="spline"
-            keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"
-            values="320,0 320,251 160,125;310,8 311,242 166,126;299,11 300,226 178,122;289,9 291,196 190,111;281,7 282,164 201,94;275,5 276,139 209,77;271,4 272,121 213,65;269,3 268,112 215,57"/>
-        </polygon>
-        <polygon class="fold fold-tail" points="0,251 320,251 160,125">
-          <animate attributeName="points" dur="3s" fill="freeze"
-            keyTimes="0;0.14;0.28;0.42;0.58;0.72;0.86;1"
-            calcMode="spline"
-            keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"
-            values="0,251 320,251 160,125;8,243 306,243 159,132;25,238 282,241 155,145;45,239 247,244 150,158;59,243 205,247 143,173;68,246 166,248 136,187;75,247 141,248 132,195;79,248 131,248 131,197"/>
-        </polygon>
-        <polygon class="fold fold-beak" points="320,0 320,0 320,0">
-          <animate attributeName="points" dur="3s" fill="freeze"
-            keyTimes="0;0.14;0.28;0.42;0.58;0.72;0.86;1"
-            calcMode="spline"
-            keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"
-            values="320,0 320,0 320,0;313,7 313,7 313,7;304,8 305,11 302,10;297,7 300,17 291,16;290,6 294,25 286,24;285,5 288,32 282,31;282,4 284,37 279,36;280,3 280,40 317,40"/>
-        </polygon>
+      <svg class="origami-mark" viewBox="-120 -100 240 200" aria-hidden="true">
+        <g id="origami-paper">
+          {Array.from({ length: 8 }).map(() => <polygon points="0,0 0,0 0,0"/>)}
+        </g>
+        <image id="origami-exact" href={`${base}assets/brand/brand-mark.png`} x="-95" y="-74.5" width="190" height="149" preserveAspectRatio="xMidYMid meet"/>
       </svg>
     </div>
   ) : (

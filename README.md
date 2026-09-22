@@ -37,9 +37,11 @@ npm run dev
 - Estrutura: preparada.
 - Auditoria offline de conteúdo: executada.
 - Background neural: unificado entre Home, páginas institucionais, Projects, Labs e cases.
-- Loading: substituído por transformação autoral de malha/origami, sem texto, círculos ou progresso.
+- Loading: malha contínua e fluida baseada no protótipo `continuous-sheet`, sem texto, círculos ou progresso.
 - Logo final: reconstruída com as cinco formas, proporções, cores e espaços negativos da marca.
 - Tempo do loading: 3 s de transformação + 2 s de leitura da marca concluída.
+- Handoff: o mesmo canvas e a mesma composição de cores permanecem ativos até a Home.
+- Interação: cliques em qualquer rota disparam uma propagação neural a partir do ponto mais próximo.
 - CashFlow: iframe navegável atualizado para `p_5n6cpchl7d`.
 - QA visual local: aprovado em desktop 1440×900 e mobile 390×844.
 - Build Astro local: pendente por indisponibilidade de rede na sessão de geração.

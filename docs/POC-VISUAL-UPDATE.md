@@ -36,3 +36,15 @@
 - Inspeção visual: desktop 1440×900 e mobile 390×844.
 - Build Astro local: pendente porque o ambiente de geração não teve acesso ao registro npm.
 - Build oficial: executar pelo workflow `Deploy POC to GitHub Pages`.
+
+## Correção v4 — malha contínua, cor e interação
+
+- A dobradura anterior foi removida.
+- A animação passou a usar interpolação contínua em `requestAnimationFrame`, baseada no protótipo `continuous-sheet-origami-preview`.
+- O papel permanece como uma única malha conectada durante a transformação.
+- A marca oficial assume o estado final de forma progressiva, sem troca brusca.
+- O background foi movido para a raiz do documento para eliminar faixas e diferenças entre Home e páginas internas.
+- Loading e páginas utilizam a mesma composição de gradientes e o mesmo canvas.
+- O canvas só é transferido no instante em que o conteúdo é liberado.
+- O clique agora inicia uma propagação pelos nós mais próximos em todas as rotas.
+- QA repetido em desktop 1440×900 e mobile 390×844, sem overflow ou recursos com falha.

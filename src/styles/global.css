@@ -259,3 +259,43 @@ body.home-loading > #site-footer{opacity:0!important}
   .origami-mark .fold{animation-duration:.25s!important}
   .origami-mark animate{display:none}
 }
+
+/* POC v4 — continuous sheet reference, seamless handoff and visible click response */
+:root{--neural-background:
+  linear-gradient(135deg,rgba(8,37,72,.16),rgba(11,27,48,.1) 48%,rgba(32,95,158,.12)),
+  radial-gradient(circle at 52% 40%,#11201f 0,#0a1110 42%,#080d0c 78%)}
+html[data-theme="dark"],html:not([data-theme]){min-height:100%;background:var(--neural-background) fixed!important}
+html[data-theme="dark"] body[data-page],
+html:not([data-theme]) body[data-page]{min-height:100%;background:transparent!important}
+body[data-page]::before{display:none!important}
+#page-loader.origami-loader,
+#page-loader.origami-loader.is-handoff{
+  top:0!important;
+  left:0!important;
+  margin:0!important;
+  transform:none!important;
+  background:var(--neural-background)!important;
+  background-attachment:fixed!important;
+  transition:opacity .68s ease,visibility .68s ease!important;
+}
+#page-loader.origami-loader::after{display:none!important}
+#page-loader.origami-loader #loader-network{opacity:.7!important}
+.origami-mark{
+  width:clamp(170px,17vw,240px)!important;
+  filter:drop-shadow(0 18px 34px rgba(0,0,0,.28)) drop-shadow(0 0 24px rgba(57,145,229,.16))!important;
+}
+#origami-paper polygon{
+  vector-effect:non-scaling-stroke;
+  stroke:rgba(201,231,248,.28);
+  stroke-width:.7;
+  stroke-linejoin:round;
+  will-change:points,opacity;
+}
+#origami-paper,#origami-exact{will-change:opacity}
+#origami-exact{opacity:0}
+#page-loader.origami-loader.is-handoff .origami-mark{opacity:1!important}
+@media(max-width:600px){.origami-mark{width:154px!important}}
+@media(prefers-reduced-motion:reduce){
+  #origami-paper{opacity:0!important}
+  #origami-exact{opacity:1!important}
+}
