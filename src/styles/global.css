@@ -116,39 +116,146 @@ body[data-page]:not([data-page="inicio"]) #starfield{display:block!important;opa
 /* ASTRO POC — adições isoladas */
 .poc-chip{display:inline-flex;align-items:center;min-height:32px;padding:0 10px;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));border-radius:999px;color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.09em}.case-showcase{width:100%;border:1px solid var(--line);border-radius:14px}.catalog-note{padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--muted)}.tags{display:flex;gap:8px;flex-wrap:wrap}.tags span{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--white);font-size:13px}.poc-warning{margin:18px 0;padding:15px 17px;border-left:3px solid var(--accent);background:var(--accent-soft);color:var(--muted)}
 
-/* Original visual behavior ported from the approved static portfolio */
-.neural-loader{position:fixed!important;inset:0!important;top:0!important;left:0!important;width:100vw!important;height:100dvh!important;min-height:100vh!important;z-index:30000!important;display:grid!important;place-items:center!important;overflow:hidden!important;background:#080f0e!important;color:#f7fbff;isolation:isolate;opacity:1;visibility:visible;transform:translateZ(0);transition:opacity .68s ease,visibility .68s ease!important}
-.neural-loader.complete{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
-.neural-loader::before{display:none!important}
-#loader-network{position:absolute!important;inset:0!important;z-index:1!important;width:100%!important;height:100%!important;display:block!important;opacity:1!important;transition:opacity .36s ease}
-.loader-logo{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 0 18px rgba(73,157,242,.42));animation:final2Logo .65s ease both;transition:opacity .36s,transform .5s}
-.loader-logo img{display:block;width:clamp(88px,10vw,132px);height:auto}
-.loader-portal{position:absolute;z-index:3;left:50%;top:50%;width:142px;height:142px;border:1px solid rgba(99,180,255,.62);border-radius:50%;transform:translate(-50%,-50%) scale(.25);opacity:0;box-shadow:0 0 44px rgba(99,180,255,.16);animation:final2Portal 2.7s .22s cubic-bezier(.17,.82,.22,1) forwards}
-.loader-portal::after{content:"";position:absolute;inset:13px;border:1px dashed rgba(111,190,255,.48);border-radius:50%;animation:loaderSpin 2.4s linear infinite}
-.neural-loader.handoff{background:transparent!important}
-.neural-loader.handoff #loader-network{opacity:.58}
-.neural-loader.handoff .loader-logo{opacity:0;transform:translate(-50%,-50%) scale(.9)}
-body.loader-active{overflow:hidden!important}
-body.home-loading #site-header,body.home-loading main,body.home-loading #site-footer{opacity:0}
-body.content-ready #site-header{animation:homeReveal .72s ease .18s both}
-body.content-ready .hero-copy{animation:homeReveal .78s ease .28s both}
-body.content-ready .character-stage{animation:homeReveal .78s ease .4s both}
-body.content-ready .signal{animation:homeReveal .78s ease .52s both}
-body.content-ready .building-public,body.content-ready main>.section:last-child{animation:homeReveal .8s ease .62s both}
-body.content-ready #site-footer{animation:homeReveal .8s ease .72s both}
-body[data-page="inicio"]>#starfield{position:fixed!important;inset:0!important;z-index:0!important;width:100%!important;height:100%!important;display:block!important;opacity:.58!important}
-body[data-page="inicio"].content-ready>#starfield{animation:networkReveal 1.2s ease .25s both}
-@keyframes loaderSpin{to{transform:rotate(360deg)}}
-@keyframes final2Logo{from{opacity:0;transform:translate(-50%,-50%) scale(.84)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-@keyframes final2Portal{8%{opacity:1}50%{opacity:.82;transform:translate(-50%,-50%) scale(1.05)}100%{opacity:0;transform:translate(-50%,-50%) scale(10)}}
-@keyframes homeReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@keyframes networkReveal{from{opacity:0}to{opacity:.58}}
-@media(max-width:600px){.neural-loader{height:100svh!important}}
-@media(prefers-reduced-motion:reduce){.loader-portal{animation-duration:.3s!important}.neural-loader{transition-duration:.2s!important}body.content-ready #site-header,body.content-ready .hero-copy,body.content-ready .character-stage,body.content-ready .signal,body.content-ready .building-public,body.content-ready main>.section:last-child,body.content-ready #site-footer,body[data-page="inicio"].content-ready>#starfield{animation:none!important;opacity:1;transform:none}}
-
-/* Canonical background: the Home visual identity applies to every route */
+/* Neural System V2: one canonical background for every route */
 html[data-theme="dark"] body[data-page],html:not([data-theme]) body[data-page]{background:radial-gradient(circle at 52% 40%,#11201f 0,#0a1110 42%,#080d0c 78%) fixed!important}
 html[data-theme="light"] body[data-page]{background:var(--paper)!important}
 body[data-page]:not([data-page="inicio"])::before,body[data-page="inicio"].content-ready::before{opacity:1!important}
 body[data-page="inicio"].home-loading::before{opacity:0!important}
-body[data-page] #starfield{display:block!important;position:fixed!important;inset:0!important;z-index:0!important;width:100%!important;height:100%!important;opacity:.58!important;filter:none!important;pointer-events:none!important}
+body[data-page] #starfield{display:block!important;position:fixed!important;inset:0!important;z-index:0!important;width:100%!important;height:100%!important;opacity:.7!important;filter:none!important;pointer-events:none!important}
+body>*:not(#starfield):not(#page-loader){position:relative;z-index:2}
+body.loader-active{overflow:hidden!important}
+body.home-loading>#site-header,body.home-loading>main,body.home-loading>#site-footer{opacity:0}
+body.content-ready>#site-header{animation:neuralContentReveal .72s ease .08s both}
+body.content-ready>main{animation:neuralContentReveal .8s ease .18s both}
+body.content-ready>#site-footer{animation:neuralContentReveal .8s ease .28s both}
+
+#page-loader.loader-v2{position:fixed!important;inset:0!important;z-index:30000!important;width:100vw!important;height:100dvh!important;display:grid!important;place-items:center!important;overflow:hidden!important;background:radial-gradient(circle at 50% 46%,rgba(13,32,51,.94) 0,rgba(8,19,31,.97) 42%,#060d14 78%)!important;color:#f7fbff!important;isolation:isolate;opacity:1!important;visibility:visible!important;transition:background .72s ease,opacity .62s ease,visibility .62s ease!important}
+#page-loader.loader-v2::before{content:""!important;display:block!important;position:absolute!important;inset:0!important;background:radial-gradient(circle at center,transparent 0,rgba(2,7,12,.08) 48%,rgba(2,7,12,.6) 100%)!important;pointer-events:none!important;z-index:2!important}
+#page-loader.loader-v2 #loader-network{position:absolute!important;inset:0!important;z-index:1!important;width:100%!important;height:100%!important;display:block!important;opacity:.92!important;transition:opacity .7s ease!important}
+.loader-v2-focus{position:absolute;left:50%;top:50%;z-index:3;width:190px;height:190px;transform:translate(-50%,-58%);border-radius:50%;opacity:.9;transition:opacity .45s ease,transform .8s cubic-bezier(.2,.75,.2,1)}
+.loader-v2-ring{position:absolute;inset:0;border:1px solid rgba(105,169,238,.2);border-radius:50%;box-shadow:0 0 55px rgba(77,153,228,.1)}
+.loader-v2-ring-a{animation:neuralRingA 7s linear infinite}
+.loader-v2-ring-b{inset:25px;border-style:dashed;border-color:rgba(105,169,238,.32);animation:neuralRingB 5s linear infinite reverse}
+.loader-v2-brand{position:absolute;left:50%;top:50%;z-index:5;display:flex;align-items:center;gap:16px;min-width:max-content;transform:translate(-50%,-62%);filter:drop-shadow(0 14px 30px rgba(0,0,0,.28));transition:opacity .4s ease,transform .75s cubic-bezier(.2,.75,.2,1)}
+.loader-v2-brand img{display:block;width:58px;height:auto;animation:neuralLogoIn .7s cubic-bezier(.2,.8,.2,1) both}
+.loader-v2-brand div{display:grid;gap:4px;text-align:left;animation:neuralWordIn .7s .12s cubic-bezier(.2,.8,.2,1) both}
+.loader-v2-brand strong{font-size:18px;line-height:1;letter-spacing:-.02em;color:#f7fbff}
+.loader-v2-brand span{font-size:9px;font-weight:800;letter-spacing:.17em;color:rgba(181,215,246,.64)}
+.loader-v2-progress{position:absolute;left:50%;top:calc(50% + 70px);z-index:5;width:min(280px,62vw);height:1px;overflow:hidden;transform:translateX(-50%);background:rgba(255,255,255,.09);transition:opacity .35s ease}
+.loader-v2-progress i{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,rgba(53,135,217,.2),#69a9ee,#a4d1ff);box-shadow:0 0 12px rgba(105,169,238,.72);animation:neuralProgress 2.15s .2s cubic-bezier(.2,.65,.2,1) forwards}
+.loader-v2>p{position:absolute;left:50%;top:calc(50% + 91px);z-index:5;margin:0;transform:translateX(-50%);font:10px/1.4 Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:rgba(205,228,248,.46);white-space:nowrap;transition:opacity .35s ease}
+#page-loader.loader-v2.is-expanding .loader-v2-focus{opacity:0;transform:translate(-50%,-58%) scale(1.35)}
+#page-loader.loader-v2.is-expanding .loader-v2-brand{transform:translate(-50%,-62%) scale(.96)}
+#page-loader.loader-v2.is-handoff{background:transparent!important;pointer-events:none!important}
+#page-loader.loader-v2.is-handoff::before{opacity:0!important}
+#page-loader.loader-v2.is-handoff #loader-network{opacity:0!important}
+#page-loader.loader-v2.is-handoff .loader-v2-brand,#page-loader.loader-v2.is-handoff .loader-v2-progress,#page-loader.loader-v2.is-handoff>p{opacity:0;transform:translate(-50%,-72%)}
+#page-loader.loader-v2.is-complete{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+@keyframes neuralLogoIn{from{opacity:0;transform:scale(.72) rotate(-8deg)}to{opacity:1;transform:none}}
+@keyframes neuralWordIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+@keyframes neuralProgress{0%{transform:scaleX(0)}35%{transform:scaleX(.28)}72%{transform:scaleX(.7)}100%{transform:scaleX(1)}}
+@keyframes neuralRingA{to{transform:rotate(360deg)}}
+@keyframes neuralRingB{to{transform:rotate(360deg)}}
+@keyframes neuralContentReveal{from{opacity:0;transform:translateY(14px);filter:blur(2px)}to{opacity:1;transform:none;filter:none}}
+@media(max-width:600px){#page-loader.loader-v2{height:100svh!important}.loader-v2-brand{gap:12px}.loader-v2-brand img{width:48px}.loader-v2-brand strong{font-size:16px}.loader-v2-focus{width:160px;height:160px}.loader-v2>p{font-size:8px;letter-spacing:.09em}}
+@media(prefers-reduced-motion:reduce){.loader-v2-ring,.loader-v2-brand img,.loader-v2-brand div,.loader-v2-progress i{animation-duration:.2s!important}body.content-ready>#site-header,body.content-ready>main,body.content-ready>#site-footer{animation-duration:.2s!important}}
+
+/* POC v3 — origami transformation and one continuous neural background */
+html[data-theme="dark"] body[data-page],
+html:not([data-theme]) body[data-page]{
+  background:radial-gradient(circle at 52% 40%,#11201f 0,#0a1110 42%,#080d0c 78%) fixed!important;
+}
+body[data-page]::before{
+  opacity:1!important;
+  background:linear-gradient(135deg,rgba(8,37,72,.16),rgba(11,27,48,.1) 48%,rgba(32,95,158,.12))!important;
+}
+body[data-page] > #starfield{
+  display:block!important;
+  position:fixed!important;
+  inset:0!important;
+  z-index:0!important;
+  width:100%!important;
+  height:100%!important;
+  opacity:.7!important;
+  pointer-events:none!important;
+}
+body.home-loading > #site-header,
+body.home-loading > main,
+body.home-loading > #site-footer{opacity:0!important}
+
+#page-loader.origami-loader{
+  position:fixed!important;
+  inset:0!important;
+  z-index:30000!important;
+  display:grid!important;
+  place-items:center!important;
+  width:100vw!important;
+  height:100dvh!important;
+  overflow:hidden!important;
+  background:radial-gradient(circle at 50% 46%,#0d2033 0,#08131f 44%,#060d14 80%)!important;
+  isolation:isolate;
+  opacity:1;
+  visibility:visible;
+  transition:background .75s ease,opacity .72s ease,visibility .72s ease;
+}
+#page-loader.origami-loader::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:radial-gradient(circle at center,transparent 0,rgba(2,7,12,.06) 52%,rgba(2,7,12,.52) 100%);
+}
+#page-loader.origami-loader #loader-network{
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+}
+.origami-mark{
+  position:relative;
+  z-index:4;
+  display:block;
+  width:clamp(150px,15vw,220px);
+  height:auto;
+  overflow:visible;
+  filter:drop-shadow(0 18px 34px rgba(0,0,0,.32)) drop-shadow(0 0 20px rgba(57,145,229,.18));
+  transform:translateZ(0);
+}
+.origami-mark .fold{
+  vector-effect:non-scaling-stroke;
+  stroke:rgba(2,15,28,.42);
+  stroke-width:.8;
+  stroke-linejoin:round;
+  fill:#2465bf;
+}
+.origami-mark .fold-wing{animation:foldWingColor 3s linear forwards}
+.origami-mark .fold-body{animation:foldBodyColor 3s linear forwards}
+.origami-mark .fold-head{animation:foldHeadColor 3s linear forwards}
+.origami-mark .fold-tail{animation:foldTailColor 3s linear forwards}
+.origami-mark .fold-beak{animation:foldBeakColor 3s linear forwards}
+#page-loader.origami-loader.is-handoff{
+  background:transparent!important;
+  pointer-events:none!important;
+}
+#page-loader.origami-loader.is-handoff::after{opacity:0}
+#page-loader.origami-loader.is-complete{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+@keyframes foldWingColor{0%,58%{fill:#2465bf}78%,100%{fill:#3aafea}}
+@keyframes foldBodyColor{0%,58%{fill:#2465bf}78%,100%{fill:#0d4faf}}
+@keyframes foldHeadColor{0%,58%{fill:#2465bf}78%,100%{fill:#0d4faf}}
+@keyframes foldTailColor{0%,58%{fill:#2465bf}78%,100%{fill:#3aafea}}
+@keyframes foldBeakColor{0%,58%{fill:#2465bf}78%,100%{fill:#51d1d5}}
+@media(max-width:600px){
+  #page-loader.origami-loader{height:100svh!important}
+  .origami-mark{width:138px}
+}
+@media(prefers-reduced-motion:reduce){
+  .origami-mark .fold{animation-duration:.25s!important}
+  .origami-mark animate{display:none}
+}

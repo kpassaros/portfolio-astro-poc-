@@ -30,6 +30,11 @@
 ## Gate 4 — Visual
 
 - [ ] Navbar e background preservados.
+- [ ] A mesma rede neural aparece em todas as rotas, sem reiniciar como outro visual.
+- [ ] Loading exibe somente papel/logo e rede neural, sem textos, círculos ou barra de progresso.
+- [ ] A transformação dura cerca de 3 s e mantém a logo final visível por cerca de 2 s.
+- [ ] O último frame corresponde à logo oficial completa, inclusive bico, cabeça, corpo, asa, cauda e espaços negativos.
+- [ ] A passagem para a Home é fluida e não deixa a tela travada.
 - [ ] Home equivalente à identidade atual.
 - [ ] Cards de Projects e Labs.
 - [ ] Desktop 1366×768.
