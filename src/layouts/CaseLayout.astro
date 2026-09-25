@@ -14,7 +14,7 @@ const labels:any={introducao:'Introdução',objetivo:'Objetivo',experimentos:'Ex
 {isLab ? <>
 <section id="objetivo" class="case-section"><p class="eyebrow">OBJETIVO</p><h2>{d.hypothesis}</h2><slot /></section>
 <section id="experimentos" class="case-section"><p class="eyebrow">EXPERIMENTOS</p><h2>Frentes em investigação</h2><div class="automation-grid">{d.experiments.map((x:string)=><article><b>Experimento</b><p>{x}</p></article>)}</div></section>
-<section id="evidencias" class="case-section"><p class="eyebrow">EVIDÊNCIAS</p><h2>Capacidades validadas</h2><ul>{d.validatedCapabilities.map((x:string)=><li>{x}</li>)}</ul></section>
+<section id="evidencias" class="case-section"><p class="eyebrow">ESTADO ATUAL</p><h2>O que o protótipo apresenta</h2><ul>{d.currentState.map((x:string)=><li>{x}</li>)}</ul></section>
 <section id="limitacoes" class="case-section"><p class="eyebrow">LIMITAÇÕES</p><h2>Restrições conhecidas</h2><ul>{d.limitations.map((x:string)=><li>{x}</li>)}</ul></section>
 <section id="proximos-testes" class="case-section"><p class="eyebrow">ROADMAP</p><h2>Próximos testes</h2><div class="architecture-flow">{d.nextTests.map((x:string,i:number)=><><span>{x}</span>{i<d.nextTests.length-1&&<i>→</i>}</>)}</div></section>
 </> : <>

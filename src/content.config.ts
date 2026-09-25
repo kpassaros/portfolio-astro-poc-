@@ -45,7 +45,7 @@ const labs = defineCollection({
     hypothesis: z.string(),
     experiments: z.array(z.string()),
     evidence: z.array(z.string()).default([]),
-    validatedCapabilities: z.array(z.string()).default([]),
+    currentState: z.array(z.string()).default([]),
     unsupportedCapabilities: z.array(z.string()).default([]),
     limitations: z.array(z.string()).default([]),
     nextTests: z.array(z.string()).default([])

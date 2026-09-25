@@ -27,6 +27,18 @@
     qa('.datastudio-frame iframe').forEach(frame=>frame.addEventListener('load',()=>{
       frame.parentElement?.querySelector('.dashboard-loading')?.remove();
     }));
+    const contact=q('.contact-form');
+    if(contact)contact.addEventListener('submit',async event=>{
+      event.preventDefault();
+      const button=q('.submit-button',contact),status=q('.form-status',contact);
+      if(button)button.disabled=true;if(status)status.textContent='Enviando…';
+      try{
+        const response=await fetch(contact.action,{method:'POST',body:new FormData(contact),headers:{Accept:'application/json'}});
+        if(!response.ok)throw new Error('Falha no envio');
+        contact.reset();if(status)status.textContent='Mensagem enviada com sucesso.';
+      }catch{if(status)status.textContent='Não foi possível enviar. Use o e-mail disponível ao lado.'}
+      finally{if(button)button.disabled=false}
+    });
   }
 
   function initOrigami(loader){

@@ -1,26 +1,15 @@
-# Portfólio Dados & BI — Astro POC
+# Portfólio Dados & BI — Astro
 
-Prova de conceito isolada da migração arquitetural. Não substitui o portfólio em produção.
+Portfólio de Kaíque Passaros publicado como site estático com Astro e GitHub Pages.
 
-## Objetivos
+## Arquitetura
 
-- Preservar a identidade visual existente.
-- Separar `projects` e `labs` como Content Collections.
-- Gerar páginas estáticas por slug.
-- Validar CashFlow, FutureViz Components e FutureViz Lab.
-- Publicar por GitHub Actions sem acesso direto ao GitHub do usuário.
-- Manter conteúdo, assets, CSS e contratos independentes do Astro.
+- Páginas estáticas geradas pelo Astro.
+- Projetos e Labs mantidos em Content Collections tipadas.
+- GitHub Actions executa auditoria, verificação, build e deploy.
+- Base path inferido pelo nome do repositório para GitHub Pages.
 
-## Como validar no GitHub
-
-1. Crie um repositório público temporário, por exemplo `portfolio-astro-poc`.
-2. Envie todo o conteúdo deste pacote para a raiz.
-3. Em **Settings → Pages**, selecione **GitHub Actions** como fonte.
-4. Abra **Actions** e acompanhe `Deploy POC to GitHub Pages`.
-5. Se o workflow concluir, abra a URL exibida no deployment.
-6. Use `VALIDATION.md` para a revisão.
-
-## Desenvolvimento local
+## Desenvolvimento
 
 ```bash
 npm install
@@ -30,19 +19,6 @@ npm run build
 npm run dev
 ```
 
-> Este pacote usa versões `latest` somente porque a sessão de geração não tinha acesso ao registro npm para criar o lockfile. Depois do primeiro build aprovado, fixe as versões e faça commit do `package-lock.json`.
+## Publicação
 
-## Estado
-
-- Estrutura: preparada.
-- Auditoria offline de conteúdo: executada.
-- Background neural: unificado entre Home, páginas institucionais, Projects, Labs e cases.
-- Loading: malha contínua e fluida baseada no protótipo `continuous-sheet`, sem texto, círculos ou progresso.
-- Logo final: reconstruída com as cinco formas, proporções, cores e espaços negativos da marca.
-- Tempo do loading: 3 s de transformação + 2 s de leitura da marca concluída.
-- Handoff: o mesmo canvas e a mesma composição de cores permanecem ativos até a Home.
-- Interação: cliques em qualquer rota disparam uma propagação neural a partir do ponto mais próximo.
-- CashFlow: iframe navegável atualizado para `p_5n6cpchl7d`.
-- QA visual local: aprovado em desktop 1440×900 e mobile 390×844.
-- Build Astro local: pendente por indisponibilidade de rede na sessão de geração.
-- Build remoto: configurado no GitHub Actions.
+O workflow `Deploy portfolio to Pages` publica a branch `main` no GitHub Pages. Antes de produção, execute o checklist de `VALIDATION.md` em homologação.

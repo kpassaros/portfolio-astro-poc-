@@ -1,64 +1,50 @@
-# Validação da POC Astro
+# Checklist de homologação — Portfólio Astro
 
-## Gate 1 — GitHub Actions
-
-- [ ] `npm install` concluído.
+## Build
+- [ ] Dependências instaladas sem erro.
 - [ ] `npm run audit` aprovado.
-- [ ] `astro check` aprovado.
-- [ ] `astro build` aprovado.
-- [ ] Artifact de Pages gerado.
-- [ ] Deployment concluído.
+- [ ] `npm run check` aprovado.
+- [ ] `npm run build` aprovado.
+- [ ] Deploy do GitHub Pages concluído.
 
-## Gate 2 — Rotas
+## Rotas
+- [ ] Home.
+- [ ] Sobre.
+- [ ] Carreira.
+- [ ] Competências.
+- [ ] Projetos e cases.
+- [ ] Labs e case experimental.
+- [ ] Contato.
 
-- [ ] `/`
-- [ ] `/projects/`
-- [ ] `/projects/cashflow-intelligence/`
-- [ ] `/projects/futureviz-components/`
-- [ ] `/labs/`
-- [ ] `/labs/futureviz-lab/`
-- [ ] `/about/`, `/career/`, `/skills/`, `/contact/`
+## Funcional
+- [ ] Currículo abre corretamente.
+- [ ] Formulário de contato envia sem trocar de página.
+- [ ] Dashboard CashFlow carrega, navega e aceita filtros.
+- [ ] FutureViz abre a demo e o GitHub corretos.
+- [ ] Busca funciona em Projetos e Labs.
+- [ ] Tema claro e escuro persistem.
+- [ ] Menu mobile abre e fecha.
 
-## Gate 3 — CashFlow
-
-- [ ] Novo iframe `p_5n6cpchl7d`.
-- [ ] Navegação do DataStudio visível.
-- [ ] Filtros funcionam.
-- [ ] Sandbox preservado.
-- [ ] Abre em nova aba.
-
-## Gate 4 — Visual
-
-- [ ] Navbar e background preservados.
-- [ ] A mesma rede neural aparece em todas as rotas, sem reiniciar como outro visual.
-- [ ] Loading exibe somente papel/logo e rede neural, sem textos, círculos ou barra de progresso.
-- [ ] A transformação dura cerca de 3 s e mantém a logo final visível por cerca de 2 s.
-- [ ] O último frame corresponde à logo oficial completa, inclusive bico, cabeça, corpo, asa, cauda e espaços negativos.
-- [ ] A passagem para a Home é fluida, não deixa a tela travada e não altera a cor do background.
-- [ ] O clique gera uma propagação neural visível na Home e em todas as páginas internas.
-- [ ] Home equivalente à identidade atual.
-- [ ] Cards de Projects e Labs.
+## Visual e interação
+- [ ] Loading aparece somente na Home.
+- [ ] Loading termina sem mudança de cor no background.
+- [ ] Rede neural permanece consistente em todas as rotas.
+- [ ] Clique no background gera propagação visível em todas as páginas.
 - [ ] Desktop 1366×768.
 - [ ] Notebook 1024×768.
 - [ ] Mobile 390×844.
-- [ ] Tema claro e escuro.
 - [ ] Sem overflow horizontal.
 
-## Gate 5 — Arquitetura
+## Conteúdo
+- [ ] Nenhuma referência a POC ou arquitetura em validação.
+- [ ] Sobre, Carreira, Competências e Contato completos.
+- [ ] FutureViz Components separado do FutureViz Lab.
+- [ ] FutureViz Lab identificado como protótipo não validado.
+- [ ] Links e informações profissionais revisados.
 
-- [ ] Adicionar projeto exige apenas conteúdo e assets.
-- [ ] Projects não lista Labs.
-- [ ] Labs não lista Projects.
-- [ ] Slugs geram páginas estáticas.
-- [ ] Conteúdo inválido interrompe o workflow.
-- [ ] `dist/` funciona sem servidor Astro.
-
-## Resultado
-
-Registrar na documentação do portfólio:
-
-- URL da POC.
-- Workflow executado.
-- Erros encontrados.
-- Diferenças visuais.
-- Decisão: aprovar, corrigir ou rejeitar.
+## Produção
+- [ ] `package-lock.json` versionado.
+- [ ] Dependências sem `latest` após homologação.
+- [ ] Apenas um workflow publica no GitHub Pages.
+- [ ] Branch de backup da produção confirmada.
+- [ ] Rollback testado ou documentado.

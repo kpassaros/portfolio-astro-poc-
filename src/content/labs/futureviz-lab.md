@@ -1,7 +1,7 @@
 ---
 kind: lab
 title: FutureViz Lab — Component Builder
-summary: Laboratório para testar componentes de BI e investigar um construtor visual capaz de exportar código para diferentes plataformas.
+summary: Protótipo conceitual que investiga uma experiência visual para composição de componentes de BI.
 year: 2026
 status: Em construção
 featured: false
@@ -11,17 +11,15 @@ technologies: [HTML, CSS, JavaScript, JSON Schema, DAX, Handlebars]
 maturity: Protótipo conceitual
 hypothesis: Um schema canônico pode sincronizar canvas, propriedades, prévia e geradores de código sem duplicar o componente.
 experiments:
-  - KPIs, cards de categoria, rankings, tooltips e estados condicionais
-  - Canvas em grade com bindings de métricas, dimensões e textos
-  - Adaptadores para Power BI, DataStudio e WebDev
-  - Preview Runtime com temas e estados de teste
+  - Organização visual de propriedades e preview
+  - Hipótese de bindings para métricas, dimensões e textos
+  - Investigação de saídas específicas para Power BI, DataStudio e WebDev
 evidence:
-  - Protótipo visual aprovado
-  - Arquitetura documentada no Notion
-validatedCapabilities:
-  - Configuração visual por propriedades
-  - Bindings e regras condicionais
-  - Exportação específica por plataforma como direção técnica
+  - Protótipo visual navegável
+currentState:
+  - Interface conceitual disponível em Labs
+  - Nenhum plano de testes foi formalizado
+  - Nenhuma capacidade de exportação foi validada
 unsupportedCapabilities:
   - Edição bidirecional irrestrita de código no MVP
   - Publicação automática nas ferramentas no MVP
@@ -30,15 +28,13 @@ limitations:
   - DataStudio não executa JavaScript inline no Templr testado
   - Canvas totalmente livre prejudica responsividade e geração confiável
 nextTests:
-  - Schema JSON v0.1
-  - Preview Runtime WebDev
-  - Adaptador Power BI
-  - Adaptador DataStudio
-  - Comparação entre saídas
+  - Definir hipótese e critérios de aceite
+  - Formular plano de testes de usabilidade
+  - Especificar contrato mínimo antes de desenvolver integrações
 links:
   - label: Repositório FutureViz
     url: https://github.com/kpassaros/futureviz-bi-components
     primary: true
 ---
 
-A POC valida o FutureViz Lab como coleção independente de Labs, sem duplicar páginas ou templates completos.
+O FutureViz Lab é apresentado como protótipo conceitual. Ele não faz parte da versão estável da biblioteca FutureViz Components.

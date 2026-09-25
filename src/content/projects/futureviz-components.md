@@ -10,14 +10,14 @@ publish: true
 cover: projects/futureviz-components/cover.png
 technologies: [Power BI, DAX, HTML, CSS, JavaScript, Handlebars, DataStudio, GitHub Pages]
 problem: Plataformas de BI podem limitar identidade visual, composição de métricas, estados condicionais e reutilização consistente.
-role: Concepção do produto, arquitetura dos contratos, design, desenvolvimento dos adaptadores, testes e publicação.
+role: Concepção do produto, arquitetura dos contratos, design, desenvolvimento das implementações, documentação e publicação.
 solution: Coleções independentes por plataforma, com código completo, documentação de campos e exemplos reproduzíveis.
 results:
   - 36 componentes publicados — 12 por plataforma
   - Coleções para Power BI, DataStudio e WebDev
-  - Testes funcionais do Templr documentados
+  - Quatro padrões-base validados no DataStudio com Templr
   - Site e código publicados no GitHub Pages
-architecture: [Contrato do componente, Bindings e tokens, Adaptador da plataforma, Código completo, Prévia equivalente]
+architecture: [Contrato do componente, Campos e regras, Implementação por plataforma, Código completo, Prévia equivalente]
 embeds:
   - type: image
     title: Home publicada do FutureViz

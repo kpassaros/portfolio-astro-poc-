@@ -1,0 +1,239 @@
+{
+  "competencies": [
+    {
+      "name": "Business Intelligence & Analytics",
+      "description": "KPIs, dashboards e análises para decisões operacionais, táticas e estratégicas."
+    },
+    {
+      "name": "Análise de Dados",
+      "description": "Exploração, validação, comparação e interpretação de dados para gerar evidências."
+    },
+    {
+      "name": "Modelagem & Arquitetura de Dados",
+      "description": "Estruturação de bases, granularidade, relacionamentos e modelos dimensionais."
+    },
+    {
+      "name": "Governança & Qualidade de Dados",
+      "description": "Fonte de verdade, regras de negócio, rastreabilidade, dicionários e validações."
+    },
+    {
+      "name": "Automação de Processos",
+      "description": "Redução de trabalho manual por fluxos, scripts, integrações e controles."
+    },
+    {
+      "name": "Integração de Sistemas",
+      "description": "Conexão entre plataformas, dados e eventos por APIs, webhooks e conectores."
+    },
+    {
+      "name": "Desenvolvimento de Soluções Internas",
+      "description": "Interfaces, portais, componentes e ferramentas digitais para usuários."
+    },
+    {
+      "name": "Transformação Digital",
+      "description": "Mapeamento de gargalos, padronização e evolução de processos e serviços."
+    },
+    {
+      "name": "Gestão de Projetos & Requisitos",
+      "description": "Descoberta, escopo, priorização, riscos, dependências, critérios de aceite e stakeholders."
+    },
+    {
+      "name": "Data Storytelling & Capacitação",
+      "description": "Comunicação executiva, documentação, treinamentos e cultura orientada por dados."
+    }
+  ],
+  "technologyGroups": [
+    {
+      "name": "Linguagens, consultas & marcação",
+      "items": [
+        "SQL",
+        "Python",
+        "DAX",
+        "M",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Google Apps Script"
+      ]
+    },
+    {
+      "name": "Plataformas & ferramentas",
+      "items": [
+        "Power BI",
+        "Power Query",
+        "Excel",
+        "Google Sheets",
+        "QlikView",
+        "Looker Studio",
+        "Power Automate",
+        "Notion",
+        "Visual Studio Code",
+        "Git",
+        "GitHub",
+        "Bizagi Modeler",
+        "VTEX",
+        "TOTVS Protheus"
+      ]
+    },
+    {
+      "name": "Bancos & plataformas de dados",
+      "items": [
+        "SQL Server",
+        "MySQL",
+        "Snowflake",
+        "Microsoft Fabric"
+      ]
+    },
+    {
+      "name": "Integração & formatos",
+      "items": [
+        "REST APIs",
+        "Webhooks",
+        "JSON",
+        "CSV",
+        "XML",
+        "ODBC",
+        "QVD"
+      ]
+    },
+    {
+      "name": "Métodos & práticas",
+      "items": [
+        "Modelagem dimensional",
+        "Star Schema",
+        "ETL / ELT",
+        "Qualidade de dados",
+        "Governança de dados",
+        "Definição de KPIs",
+        "Storytelling com dados",
+        "Levantamento de requisitos",
+        "Mapeamento de processos",
+        "Agile / Kanban",
+        "Design Sprint",
+        "RACI / 5W2H",
+        "DoR / DoD",
+        "Documentação técnica",
+        "Testes e validação"
+      ]
+    }
+  ],
+  "en": {
+    "competencies": [
+      {
+        "name": "Business Intelligence & Analytics",
+        "description": "KPIs, dashboards e análises para decisões operacionais, táticas e estratégicas."
+      },
+      {
+        "name": "Data Analysis",
+        "description": "Exploração, validação, comparação e interpretação de dados para gerar evidências."
+      },
+      {
+        "name": "Data Modeling & Architecture",
+        "description": "Estruturação de bases, granularidade, relacionamentos e modelos dimensionais."
+      },
+      {
+        "name": "Data Governance & Quality",
+        "description": "Fonte de verdade, regras de negócio, rastreabilidade, dicionários e validações."
+      },
+      {
+        "name": "Process Automation",
+        "description": "Redução de trabalho manual por fluxos, scripts, integrações e controles."
+      },
+      {
+        "name": "Systems Integration",
+        "description": "Conexão entre plataformas, dados e eventos por APIs, webhooks e conectores."
+      },
+      {
+        "name": "Internal Solution Development",
+        "description": "Interfaces, portais, componentes e ferramentas digitais para usuários."
+      },
+      {
+        "name": "Digital Transformation",
+        "description": "Mapeamento de gargalos, padronização e evolução de processos e serviços."
+      },
+      {
+        "name": "Project & Requirements Management",
+        "description": "Descoberta, escopo, priorização, riscos, dependências, critérios de aceite e stakeholders."
+      },
+      {
+        "name": "Data Storytelling & Enablement",
+        "description": "Comunicação executiva, documentação, treinamentos e cultura orientada por dados."
+      }
+    ],
+    "technologyGroups": [
+      {
+        "name": "Languages, queries & markup",
+        "items": [
+          "SQL",
+          "Python",
+          "DAX",
+          "M",
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "Google Apps Script"
+        ]
+      },
+      {
+        "name": "Platforms & tools",
+        "items": [
+          "Power BI",
+          "Power Query",
+          "Excel",
+          "Google Sheets",
+          "QlikView",
+          "Looker Studio",
+          "Power Automate",
+          "Notion",
+          "Visual Studio Code",
+          "Git",
+          "GitHub",
+          "Bizagi Modeler",
+          "VTEX",
+          "TOTVS Protheus"
+        ]
+      },
+      {
+        "name": "Databases & data platforms",
+        "items": [
+          "SQL Server",
+          "MySQL",
+          "Snowflake",
+          "Microsoft Fabric",
+          "Azure"
+        ]
+      },
+      {
+        "name": "Integration & formats",
+        "items": [
+          "REST APIs",
+          "Webhooks",
+          "JSON",
+          "CSV",
+          "XML",
+          "ODBC",
+          "QVD"
+        ]
+      },
+      {
+        "name": "Methods & practices",
+        "items": [
+          "Modelagem dimensional",
+          "Star Schema",
+          "ETL / ELT",
+          "Qualidade de dados",
+          "Governança de dados",
+          "Definição de KPIs",
+          "Storytelling com dados",
+          "Levantamento de requisitos",
+          "Mapeamento de processos",
+          "Agile / Kanban",
+          "Design Sprint",
+          "RACI / 5W2H",
+          "DoR / DoD",
+          "Documentação técnica",
+          "Testes e validação"
+        ]
+      }
+    ]
+  }
+}
