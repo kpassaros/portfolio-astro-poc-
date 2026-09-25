@@ -27,6 +27,9 @@ links:
   - label: Abrir dashboard
     url: https://datastudio.google.com/u/0/reporting/40e39169-0660-4056-8589-6b20f063e2cd/page/p_5n6cpchl7d
     primary: true
+  - label: Abrir planilha de dados
+    url: https://docs.google.com/spreadsheets/d/e/2PACX-1vTEdrgpOGIfwpSgu1s4PSwMTPSJjrtkEUDTbwEKFHbCkkm37o1KTN9FGMcxIJ9HyTG3hd6lakeDJCti/pubhtml
+    primary: false
 ---
 
 A demonstração utiliza dados sintéticos e preserva o mesmo iframe navegável aprovado no hotfix de produção.

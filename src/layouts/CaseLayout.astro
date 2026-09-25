@@ -3,8 +3,8 @@ import BaseLayout from './BaseLayout.astro';
 interface Props { entry:any; collection:'projects'|'labs' }
 const { entry, collection } = Astro.props;
 const d=entry.data; const base=import.meta.env.BASE_URL; const isLab=collection==='labs';
-const sections=isLab?['introducao','objetivo','experimentos','evidencias','limitacoes','proximos-testes']:['introducao','sobre-projeto','stack-projeto','demonstracao','arquitetura','resultados'];
-const labels:any={introducao:'Introdução',objetivo:'Objetivo',experimentos:'Experimentos',evidencias:'Evidências',limitacoes:'Limitações','proximos-testes':'Próximos testes','sobre-projeto':'Sobre o projeto','stack-projeto':'Stack',demonstracao:'Demonstração',arquitetura:'Arquitetura',resultados:'Resultados'};
+const sections=isLab?['introducao','objetivo','experimentos','evidencias','limitacoes','proximos-testes']:['introducao','sobre-projeto','stack-projeto','demonstracao','arquitetura','resultados',...(d.links.length?['links-projeto']:[])];
+const labels:any={introducao:'Introdução',objetivo:'Objetivo',experimentos:'Experimentos',evidencias:'Evidências',limitacoes:'Limitações','proximos-testes':'Próximos testes','sobre-projeto':'Sobre o projeto','stack-projeto':'Stack',demonstracao:'Demonstração',arquitetura:'Arquitetura',resultados:'Resultados','links-projeto':'Links'};
 ---
 <BaseLayout title={`${d.title} — Kaíque Passaros`} description={d.summary} active={isLab?'labs':'projects'}>
 <article class="project-case cashflow-case"><div class="case-layout">
@@ -23,6 +23,7 @@ const labels:any={introducao:'Introdução',objetivo:'Objetivo',experimentos:'Ex
 <section id="demonstracao" class="case-section"><p class="eyebrow">DEMONSTRAÇÃO</p><h2>Explore a solução</h2>{d.embeds.map((e:any)=>e.type==='iframe'?<div class="datastudio-frame" style={`aspect-ratio:${e.aspectRatio}`}><div class="dashboard-loading">Carregando dashboard…</div><iframe src={e.url} title={e.title} loading="lazy" allowfullscreen sandbox={e.sandbox.join(' ')}></iframe></div>:e.fallback&&<img class="case-showcase" src={`${base}${e.fallback}`} alt={e.title}/>)}</section>
 <section id="arquitetura" class="case-section"><p class="eyebrow">FLUXO TÉCNICO</p><h2>Arquitetura</h2><div class="architecture-flow">{d.architecture.map((x:string,i:number)=><><span>{x}</span>{i<d.architecture.length-1&&<i>→</i>}</>)}</div></section>
 <section id="resultados" class="case-section"><p class="eyebrow">RESULTADOS</p><h2>Entregas</h2><div class="automation-grid">{d.results.map((x:string)=><article><b>Resultado</b><p>{x}</p></article>)}</div><slot /></section>
+{d.links.length>0&&<section id="links-projeto" class="case-section project-dashboard-link"><p class="eyebrow">ACESSOS</p><h2>Links do projeto</h2><div class="doc-links">{d.links.map((link:any)=><a class={link.primary?'primary':'secondary'} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div></section>}
 </>}
 </div></div></article>
 </BaseLayout>

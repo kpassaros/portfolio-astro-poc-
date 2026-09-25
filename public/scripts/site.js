@@ -16,17 +16,55 @@
       const open=links.classList.toggle('open');
       toggle.setAttribute('aria-expanded',String(open));
     });
-    const search=q('#catalog-search');
-    if(search)search.addEventListener('input',()=>{
-      const term=search.value.trim().toLowerCase();
-      qa('[data-search]').forEach(card=>card.hidden=!card.dataset.search.includes(term));
-    });
+    const search=q('#catalog-search'),filterBar=q('#catalog-filters'),empty=q('#catalog-empty');
+    if(search){
+      let activeFilter='all';
+      const normalize=value=>(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+      const applyCatalogFilters=()=>{
+        const term=normalize(search.value.trim());
+        let visible=0;
+        qa('[data-search]').forEach(card=>{
+          const matchesSearch=normalize(card.dataset.search).includes(term);
+          const filters=normalize(card.dataset.filters);
+          const matchesFilter=activeFilter==='all'||filters.includes(activeFilter);
+          card.hidden=!(matchesSearch&&matchesFilter);
+          if(!card.hidden)visible++;
+        });
+        if(empty)empty.hidden=visible>0;
+      };
+      search.addEventListener('input',applyCatalogFilters);
+      qa('[data-filter]',filterBar||document).forEach(button=>button.addEventListener('click',()=>{
+        activeFilter=button.dataset.filter||'all';
+        qa('[data-filter]',filterBar||document).forEach(item=>item.classList.toggle('active',item===button));
+        applyCatalogFilters();
+      }));
+      applyCatalogFilters();
+    }
     qa('.case-index a').forEach(a=>a.addEventListener('click',()=>{
       qa('.case-index a').forEach(x=>x.classList.toggle('active',x===a));
     }));
-    qa('.datastudio-frame iframe').forEach(frame=>frame.addEventListener('load',()=>{
-      frame.parentElement?.querySelector('.dashboard-loading')?.remove();
-    }));
+    qa('.datastudio-frame iframe').forEach(frame=>{
+      const wrapper=frame.parentElement;
+      let armed=false,lastStableScroll=window.scrollY,tracker=0;
+      const remember=()=>{lastStableScroll=window.scrollY};
+      wrapper?.addEventListener('pointerenter',()=>{
+        armed=true;remember();
+        tracker=window.setInterval(remember,120);
+      });
+      wrapper?.addEventListener('pointerleave',()=>{
+        armed=false;
+        if(tracker)window.clearInterval(tracker);
+      });
+      frame.addEventListener('focus',()=>{armed=true;remember()});
+      frame.addEventListener('load',()=>{
+        wrapper?.querySelector('.dashboard-loading')?.remove();
+        if(!armed)return;
+        const expected=lastStableScroll;
+        requestAnimationFrame(()=>requestAnimationFrame(()=>{
+          if(Math.abs(window.scrollY-expected)>2)window.scrollTo({top:expected,left:window.scrollX,behavior:'auto'});
+        }));
+      });
+    });
     const contact=q('.contact-form');
     if(contact)contact.addEventListener('submit',async event=>{
       event.preventDefault();
@@ -243,6 +281,34 @@
     },duration);
   }
 
+  function initCareerTimeline(){
+    const timeline=q('#career-timeline');
+    if(!timeline)return;
+    const entries=qa('.career-entry',timeline);
+    let ticking=false;
+    const update=()=>{
+      const rect=timeline.getBoundingClientRect();
+      const viewport=window.innerHeight||document.documentElement.clientHeight;
+      const start=viewport*.78;
+      const travel=Math.max(rect.height,1);
+      const progress=Math.max(0,Math.min(1,(start-rect.top)/travel));
+      timeline.style.setProperty('--progress',`${(progress*100).toFixed(2)}%`);
+      entries.forEach(entry=>{
+        const itemRect=entry.getBoundingClientRect();
+        if(itemRect.top<viewport*.84&&itemRect.bottom>viewport*.08)entry.classList.add('visible');
+      });
+      ticking=false;
+    };
+    const requestUpdate=()=>{
+      if(ticking)return;
+      ticking=true;
+      requestAnimationFrame(update);
+    };
+    addEventListener('scroll',requestUpdate,{passive:true});
+    addEventListener('resize',requestUpdate,{passive:true});
+    update();
+  }
+
   function releaseLoader(loader){
     if(!loader||!loader.isConnected)return;
     loader.classList.add('is-complete');
@@ -261,5 +327,5 @@
     video.muted=true;video.play().catch(()=>{});
   }
 
-  chrome();initBackground();pageTransitions();character();
+  chrome();initBackground();initCareerTimeline();pageTransitions();character();
 })();
