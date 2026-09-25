@@ -29,6 +29,9 @@ links:
   - label: GitHub
     url: https://github.com/kpassaros/futureviz-bi-components
     primary: false
+  - label: Diagrama do projeto
+    url: "https://lucid.app/lucidchart/4729e1d1-d90d-416b-8aec-36afe4c18ee4/edit?viewport_loc=-2042%2C-482%2C3513%2C2522%2CzRDxLW.~GbQ2&invitationId=inv_301f1888-a0d1-4c6e-b0fa-1c429ff498a2"
+    primary: false
 ---
 
 A biblioteca é mantida em repositório independente. O portfólio apresenta o contexto, os resultados e uma demonstração da versão publicada.
