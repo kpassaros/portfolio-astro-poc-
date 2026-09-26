@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <meta http-equiv="refresh" content="2; url=https://kpassaros.github.io/portfolio/">
+  <link rel="canonical" href="https://kpassaros.github.io/portfolio/">
+  <title>Portfólio movido</title>
+  <style>
+    :root{color-scheme:dark;font-family:Arial,sans-serif}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 38%,#11201f 0,#0a1110 48%,#080d0c 82%);color:#f4f6f5}.card{width:min(100%,520px);padding:32px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(28,32,30,.86);text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.28)}.mark{display:block;width:74px;height:auto;margin:0 auto 22px}h1{margin:0 0 12px;font-size:28px;letter-spacing:-.03em}p{margin:0;color:rgba(255,255,255,.68);line-height:1.6}a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;margin-top:24px;padding:0 18px;border-radius:10px;background:#69a9ee;color:#07121a;font-weight:800;text-decoration:none}.hint{margin-top:16px;font-size:13px}
+  </style>
+  <script>
+    (() => {
+      const oldBase = '/portfolio-dados-bi';
+      const newBase = '/portfolio';
+      let suffix = location.pathname.startsWith(oldBase)
+        ? location.pathname.slice(oldBase.length)
+        : '/';
+      if (!suffix || suffix === '/' || suffix === '/index.html') suffix = '/';
+      else suffix = suffix.replace(/\/index\.html$/, '/');
+      const target = `https://kpassaros.github.io${newBase}${suffix}${location.search}${location.hash}`;
+      location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <main class="card">
+    <img class="mark" src="brand-mark.png" alt="">
+    <h1>O portfólio mudou de endereço</h1>
+    <p>Você será direcionado automaticamente para a nova versão.</p>
+    <a href="https://kpassaros.github.io/portfolio/">Abrir novo portfólio →</a>
+    <p class="hint">Novo endereço: kpassaros.github.io/portfolio/</p>
+  </main>
+</body>
+</html>
